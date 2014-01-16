@@ -6,6 +6,8 @@ import el.utils.ByteUtils;
 
 import java.util.List;
 
+import static el.utils.ByteUtils.nex2;
+import static el.utils.ByteUtils.nex4;
 import static el.utils.ByteUtils.unsigned;
 
 public class StorageUtil {
@@ -34,11 +36,11 @@ public class StorageUtil {
     }
 
     private static void updateSingleItem(Item[] items, Message message) {
-        int pos = unsigned(message.getSource()[11]);
+        int pos = nex2(message.getSource(), 11);
         for (Item item : items) {
             if (item != null && item.pos == pos && item.quantity > 0) {
-                item.imageId = ByteUtils.nex2(message.getSource(), 5);
-                item.quantity = ByteUtils.nex4(message.getSource(), 7);
+                item.imageId = nex2(message.getSource(), 5);
+                item.quantity = nex4(message.getSource(), 7);
                 item.pos = pos;
                 return;
             }
@@ -58,9 +60,9 @@ public class StorageUtil {
                 item = new Item();
                 items[i] = item;
             }
-            item.imageId = ByteUtils.nex2(message.getSource(), first);
-            item.quantity = ByteUtils.nex4(message.getSource(), first + 2);
-            item.pos = unsigned(message.getSource()[first + 6]);
+            item.imageId = nex2(message.getSource(), first);
+            item.quantity = nex4(message.getSource(), first + 2);
+            item.pos = nex2(message.getSource(), first + 6);
         }
     }
 
