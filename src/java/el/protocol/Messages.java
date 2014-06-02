@@ -1,5 +1,7 @@
 package el.protocol;
 
+import android.util.Log;
+
 import el.actor.Item;
 
 import java.io.UnsupportedEncodingException;
@@ -168,4 +170,55 @@ public class Messages {
 
         return bytes;
     }
+    public static Message manufacture(Item[] manufacture_items, int mix_num){
+        byte type = MANUFACTURE_THIS;
+        int num_items = 0;
+
+        // Get total number of items in pipe
+        for(int i = 0; i < manufacture_items.length; i++) {
+            if(manufacture_items[i] != null) {
+                num_items++;
+            }
+        }
+
+        // Message contains in order:
+        // Data type (MANUFACTURE_THIS, 1 byte)
+        // Message length (2 bytes)
+        // Number of items in recipe (1 byte)
+        // For each item:
+        // Item pos (1 byte)
+        // Item quantity (2 bytes)
+        // Mix quantity (1 byte at the end of message)
+
+        // Total bytes in a message then:
+        // number_of_items * 3 + 5
+
+        byte data[] = new byte[num_items * 3 + 5];
+        // Message type
+        data[0] = type;
+        //Message length
+        data[1] = (byte) ((num_items * 3 + 3) & 0xFF);
+        data[2] = (byte) ((num_items * 3 + 3) >> 8  & 0xFF);
+        //Number of items in recipe
+        data[3] = (byte) (num_items & 0xFF);
+
+        for(int i = 0; i < num_items; i++) {
+            // Item position corresponding to inventory position
+            data[i * 3 + 4] = (byte) (manufacture_items[i].pos);
+            // quantity could be bigger than 255 (in recipes), and the server
+            // expects the quantity in i*3+5th and i*3+6th bytes.
+            data[i * 3 + 5] = (byte) ( (manufacture_items[i].quantity ) & 0xFF);
+            data[i * 3 + 6] = (byte) ( (manufacture_items[i].quantity >>8) & 0xFF);
+        }
+        // Last byte in message is the mix quantity (1 or 255)
+        data[num_items * 3 + 4] = (byte) (mix_num & 0xFF);
+        return new Message(data);
+    }
+
+    // Be polite to people and sit down while harvesting (simple message)
+    // Does not toggle as in the desktop client but just sits down.
+    public static Message sitDown() {
+        return new Message(new byte[]{SIT_DOWN, 2, 0, 1});
+    }
+
 }
