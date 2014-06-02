@@ -7,6 +7,7 @@ public class ProtocolTypes {
     //client to server
     public static final int MOVE_TO = 1;
     public static final int SEND_PM = 2;
+    public static final int SIT_DOWN = 7;
     public static final int SEND_OPENING_SCREEN = 9;
     public static final int SEND_VERSION = 10;
     public static final int HEART_BEAT = 14;
@@ -15,6 +16,7 @@ public class ProtocolTypes {
     public static final int HARVEST = 21;
     public static final int TOUCH_PLAYER = 28;
     public static final int RESPOND_TO_NPC = 29;
+    public static final int MANUFACTURE_THIS = 30;
     public static final int USE_INVENTORY_ITEM = 31;
     public static final int TRADE_WITH = 32;
     public static final int ACCEPT_TRADE = 33;
@@ -37,6 +39,7 @@ public class ProtocolTypes {
     public static final int KILL_ALL_ACTORS = 9;
     public static final int HERE_YOUR_STATS = 18;
     public static final int HERE_YOUR_INVENTORY = 19;
+    public static final int INVENTORY_ITEM_TEXT = 20; // sent when manufacture happens?
     public static final int GET_NEW_INVENTORY_ITEM = 21;
     public static final int REMOVE_ITEM_FROM_INVENTORY = 22;
     public static final int NPC_OPTIONS_LIST = 31;
@@ -49,6 +52,7 @@ public class ProtocolTypes {
     public static final int GET_TRADE_PARTNER_NAME = 41;
     public static final int SEND_PARTIAL_STAT = 49;
     public static final int ADD_NEW_ENHANCED_ACTOR = 51;
+    public static final int GET_KNOWLEDGE_LIST = 55;
     public static final int PING_REQUEST = 60;
     public static final int STORAGE_LIST = 67;
     public static final int STORAGE_ITEMS = 68;
