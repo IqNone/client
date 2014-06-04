@@ -1,5 +1,7 @@
 package el.client;
 
+import android.util.Log;
+
 import el.actor.*;
 import el.logging.Logger;
 import el.logging.LoggerFactory;
@@ -15,6 +17,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
+import static el.client.RawTextUtil.getSpans;
 import static el.client.RawTextUtil.putRawText;
 import static el.protocol.Messages.authentication;
 import static el.protocol.Messages.version;
@@ -180,6 +183,9 @@ public class Client implements MessageReceiveListener {
             case GET_TRADE_EXIT:
                 onGetTradeExit();
                 break;
+            case INVENTORY_ITEM_TEXT:
+                onInventoryText(message);
+                break;
         }
     }
 
@@ -211,8 +217,31 @@ public class Client implements MessageReceiveListener {
                 return;
             }
         }
+        LOGGER.info(new String(message.getSource(), 4, message.getSource().length - 5));
+    }
 
 
+    private void onInventoryText(Message message) {
+        // This might be a response to couple things
+        // One of them is the manufacture response
+
+        byte[] data = message.getSource();
+        //int channel = ByteUtils.unsigned(data[3]);
+        //Get the last sent text
+        List<Span> spans = RawTextUtil.getSpans(data, 4, data.length);
+
+
+        // Change color of the text depending on the success or failure type
+        // This does not seem to be sending color information with text
+        if (spans.get(0).text.contains("You successfully")
+                || spans.get(0).text.contains("You started")
+                || spans.get(0).text.contains("Just exp")) {
+            actor.last_inventory_item_text.color = Colors.GREEN3;
+        }else {
+            actor.last_inventory_item_text.color = Colors.RED3;
+        }
+
+        actor.last_inventory_item_text.text = spans.get(0).text;
         LOGGER.info(new String(message.getSource(), 4, message.getSource().length - 5));
     }
 
@@ -532,4 +561,13 @@ public class Client implements MessageReceiveListener {
             }
         }
     }
+
+    public void manufacture_item(Item[] manufacture_items, int mix_num){
+        connection.sendMessage(Messages.manufacture(manufacture_items, mix_num));
+    }
+
+    public void sitDown(){
+        connection.sendMessage(Messages.sitDown());
+    }
+
 }
