@@ -1,7 +1,5 @@
 package el.client;
 
-import android.util.Log;
-
 import el.actor.*;
 import el.logging.Logger;
 import el.logging.LoggerFactory;
@@ -17,7 +15,6 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
-import static el.client.RawTextUtil.getSpans;
 import static el.client.RawTextUtil.putRawText;
 import static el.protocol.Messages.authentication;
 import static el.protocol.Messages.version;
