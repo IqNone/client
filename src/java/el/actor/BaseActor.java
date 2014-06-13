@@ -7,7 +7,7 @@ public class BaseActor {
     public int id;
     public int nameColor;
     public List<Span> name = new ArrayList<>();
-    public Attribute materialPoints = new Attribute();
+    public Attributes.Attribute materialPoints = new Attributes.Attribute();
     public int x;
     public int y;
 }

@@ -7,20 +7,20 @@ public class Statistics {
     // create progress bars with the same idea as the food etc.
 
     // Skill experience attributes
-    public Attribute manufacturing_exp = new Attribute();
-    public Attribute harvesting_exp = new Attribute();
-    public Attribute alchemy_exp = new Attribute();
-    public Attribute overall_exp = new Attribute();
-    public Attribute attack_exp = new Attribute();
-    public Attribute defense_exp = new Attribute();
-    public Attribute magic_exp = new Attribute();
-    public Attribute potion_exp = new Attribute();
-    public Attribute summoning_exp = new Attribute();
-    public Attribute crafting_exp = new Attribute();
-    public Attribute engineering_exp = new Attribute();
-    public Attribute tailoring_exp = new Attribute();
-    public Attribute ranging_exp = new Attribute();
-    public Attribute research = new Attribute();
+    public Attributes.Attribute manufacturing_exp = new Attributes.Attribute();
+    public Attributes.Attribute harvesting_exp = new Attributes.Attribute();
+    public Attributes.Attribute alchemy_exp = new Attributes.Attribute();
+    public Attributes.Attribute overall_exp = new Attributes.Attribute();
+    public Attributes.Attribute attack_exp = new Attributes.Attribute();
+    public Attributes.Attribute defense_exp = new Attributes.Attribute();
+    public Attributes.Attribute magic_exp = new Attributes.Attribute();
+    public Attributes.Attribute potion_exp = new Attributes.Attribute();
+    public Attributes.Attribute summoning_exp = new Attributes.Attribute();
+    public Attributes.Attribute crafting_exp = new Attributes.Attribute();
+    public Attributes.Attribute engineering_exp = new Attributes.Attribute();
+    public Attributes.Attribute tailoring_exp = new Attributes.Attribute();
+    public Attributes.Attribute ranging_exp = new Attributes.Attribute();
+    public Attributes.Attribute research = new Attributes.Attribute();
 
 
 }

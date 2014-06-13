@@ -123,62 +123,62 @@ public class StatsUtil {
         actor.research_total = unsigned(stats.get(82));
 
         // Fill Base attributes
-        actor.phy.current = unsigned(stats.get(0));
-        actor.phy.base = unsigned(stats.get(1));
-        actor.coo.current = unsigned(stats.get(2));
-        actor.coo.base = unsigned(stats.get(3));
-        actor.rea.current = unsigned(stats.get(4));
-        actor.rea.base = unsigned(stats.get(5));
-        actor.wil.current = unsigned(stats.get(6));
-        actor.wil.base = unsigned(stats.get(7));
-        actor.ins.current = unsigned(stats.get(8));
-        actor.ins.base = unsigned(stats.get(9));
-        actor.vit.current = unsigned(stats.get(10));
-        actor.vit.base = unsigned(stats.get(11));
+        actor.base.phy.current = unsigned(stats.get(0));
+        actor.base.phy.base = unsigned(stats.get(1));
+        actor.base.coo.current = unsigned(stats.get(2));
+        actor.base.coo.base = unsigned(stats.get(3));
+        actor.base.rea.current = unsigned(stats.get(4));
+        actor.base.rea.base = unsigned(stats.get(5));
+        actor.base.wil.current = unsigned(stats.get(6));
+        actor.base.wil.base = unsigned(stats.get(7));
+        actor.base.ins.current = unsigned(stats.get(8));
+        actor.base.ins.base = unsigned(stats.get(9));
+        actor.base.vit.current = unsigned(stats.get(10));
+        actor.base.vit.base = unsigned(stats.get(11));
 
         // Fill Nexus attributes
-        actor.human_nex.current = unsigned(stats.get(12));
-        actor.human_nex.base = unsigned(stats.get(13));
-        actor.animal_nex.current = unsigned(stats.get(14));
-        actor.animal_nex.base = unsigned(stats.get(15));
-        actor.vegetal_nex.current = unsigned(stats.get(16));
-        actor.vegetal_nex.base = unsigned(stats.get(17));
-        actor.inorganic_nex.current = unsigned(stats.get(18));
-        actor.inorganic_nex.base = unsigned(stats.get(19));
-        actor.artificial_nex.current = unsigned(stats.get(20));
-        actor.artificial_nex.base = unsigned(stats.get(21));
-        actor.magic_nex.current = unsigned(stats.get(22));
-        actor.magic_nex.base = unsigned(stats.get(23));
+        actor.nexuses.human.current = unsigned(stats.get(12));
+        actor.nexuses.human.base = unsigned(stats.get(13));
+        actor.nexuses.animal.current = unsigned(stats.get(14));
+        actor.nexuses.animal.base = unsigned(stats.get(15));
+        actor.nexuses.vegetal.current = unsigned(stats.get(16));
+        actor.nexuses.vegetal.base = unsigned(stats.get(17));
+        actor.nexuses.inorganic.current = unsigned(stats.get(18));
+        actor.nexuses.inorganic.base = unsigned(stats.get(19));
+        actor.nexuses.artificial.current = unsigned(stats.get(20));
+        actor.nexuses.artificial.base = unsigned(stats.get(21));
+        actor.nexuses.magic.current = unsigned(stats.get(22));
+        actor.nexuses.magic.base = unsigned(stats.get(23));
 
         // Fill skill attributes
-        actor.manufacturing_skill.current = unsigned(stats.get(24));
-        actor.manufacturing_skill.base = unsigned(stats.get(25));
-        actor.harvesting_skill.current = unsigned(stats.get(26));
-        actor.harvesting_skill.base = unsigned(stats.get(27));
-        actor.alchemy_skill.current = unsigned(stats.get(28));
-        actor.alchemy_skill.base = unsigned(stats.get(29));
-        actor.overall_skill.current = unsigned(stats.get(30));
-        actor.overall_skill.base = unsigned(stats.get(31));
-        actor.attack_skill.current = unsigned(stats.get(32));
-        actor.attack_skill.base = unsigned(stats.get(33));
-        actor.defense_skill.current = unsigned(stats.get(34));
-        actor.defense_skill.base = unsigned(stats.get(35));
-        actor.magic_skill.current = unsigned(stats.get(36));
-        actor.magic_skill.base = unsigned(stats.get(37));
-        actor.potion_skill.current = unsigned(stats.get(38));
-        actor.potion_skill.base = unsigned(stats.get(39));
-        actor.summoning_skill.current = unsigned(stats.get(83));
-        actor.summoning_skill.base = unsigned(stats.get(84));
-        actor.crafting_skill.current = unsigned(stats.get(89));
-        actor.crafting_skill.base = unsigned(stats.get(90));
-        actor.engineering_skill.current = unsigned(stats.get(95));
-        actor.engineering_skill.base = unsigned(stats.get(96));
-        actor.tailoring_skill.current = unsigned(stats.get(101));
-        actor.tailoring_skill.base = unsigned(stats.get(102));
-        actor.ranging_skill.current = unsigned(stats.get(107));
-        actor.ranging_skill.base = unsigned(stats.get(108));
-        actor.action_points.current = unsigned(stats.get(113));
-        actor.action_points.base = unsigned(stats.get(114));
+        actor.skills.manufacturing.current = unsigned(stats.get(24));
+        actor.skills.manufacturing.base = unsigned(stats.get(25));
+        actor.skills.harvesting.current = unsigned(stats.get(26));
+        actor.skills.harvesting.base = unsigned(stats.get(27));
+        actor.skills.alchemy.current = unsigned(stats.get(28));
+        actor.skills.alchemy.base = unsigned(stats.get(29));
+        actor.skills.overall.current = unsigned(stats.get(30));
+        actor.skills.overall.base = unsigned(stats.get(31));
+        actor.skills.attack.current = unsigned(stats.get(32));
+        actor.skills.attack.base = unsigned(stats.get(33));
+        actor.skills.defense.current = unsigned(stats.get(34));
+        actor.skills.defense.base = unsigned(stats.get(35));
+        actor.skills.magic.current = unsigned(stats.get(36));
+        actor.skills.magic.base = unsigned(stats.get(37));
+        actor.skills.potion.current = unsigned(stats.get(38));
+        actor.skills.potion.base = unsigned(stats.get(39));
+        actor.skills.summoning.current = unsigned(stats.get(83));
+        actor.skills.summoning.base = unsigned(stats.get(84));
+        actor.skills.crafting.current = unsigned(stats.get(89));
+        actor.skills.crafting.base = unsigned(stats.get(90));
+        actor.skills.engineering.current = unsigned(stats.get(95));
+        actor.skills.engineering.base = unsigned(stats.get(96));
+        actor.skills.tailoring.current = unsigned(stats.get(101));
+        actor.skills.tailoring.base = unsigned(stats.get(102));
+        actor.skills.ranging.current = unsigned(stats.get(107));
+        actor.skills.ranging.base = unsigned(stats.get(108));
+        actor.actionPoints.current = unsigned(stats.get(113));
+        actor.actionPoints.base = unsigned(stats.get(114));
 
         // Fill experience points
         actor.statistics.manufacturing_exp.current = nex_int(stats.get(49), stats.get(50));
@@ -210,24 +210,24 @@ public class StatsUtil {
 
         // Cross attributes, calculation (taken from stats.c)
 
-        actor.might.base = (actor.phy.base + actor.coo.base) / 2;
-        actor.might.current = (actor.phy.current + actor.coo.current) / 2;
-        actor.matter.base = (actor.phy.base + actor.wil.base) / 2;
-        actor.matter.current = (actor.phy.current + actor.wil.current) / 2;
-        actor.toughness.base = (actor.phy.base + actor.vit.base) / 2;
-        actor.toughness.current = (actor.phy.current + actor.vit.current) / 2;
-        actor.charm.base = (actor.ins.base + actor.vit.base) / 2;
-        actor.charm.current = (actor.ins.current + actor.vit.current) / 2;
-        actor.reaction.base = (actor.ins.base + actor.coo.base) / 2;
-        actor.reaction.current = (actor.ins.current + actor.coo.current) / 2;
-        actor.perception.base = (actor.ins.base + actor.rea.base) / 2;
-        actor.perception.current = (actor.ins.current + actor.rea.current) / 2;
-        actor.rationality.base = (actor.wil.base + actor.rea.base) / 2;
-        actor.rationality.current = (actor.wil.current + actor.rea.current) / 2;
-        actor.dexterity.base = (actor.coo.base + actor.rea.base) / 2;
-        actor.dexterity.current = (actor.coo.current + actor.rea.current) / 2;
-        actor.ethereality.base = (actor.wil.base + actor.vit.base) / 2;
-        actor.ethereality.current = (actor.wil.current + actor.vit.current) / 2;
+        actor.cross.might.base = (actor.base.phy.base + actor.base.coo.base) / 2;
+        actor.cross.might.current = (actor.base.phy.current + actor.base.coo.current) / 2;
+        actor.cross.matter.base = (actor.base.phy.base + actor.base.wil.base) / 2;
+        actor.cross.matter.current = (actor.base.phy.current + actor.base.wil.current) / 2;
+        actor.cross.toughness.base = (actor.base.phy.base + actor.base.vit.base) / 2;
+        actor.cross.toughness.current = (actor.base.phy.current + actor.base.vit.current) / 2;
+        actor.cross.charm.base = (actor.base.ins.base + actor.base.vit.base) / 2;
+        actor.cross.charm.current = (actor.base.ins.current + actor.base.vit.current) / 2;
+        actor.cross.reaction.base = (actor.base.ins.base + actor.base.coo.base) / 2;
+        actor.cross.reaction.current = (actor.base.ins.current + actor.base.coo.current) / 2;
+        actor.cross.perception.base = (actor.base.ins.base + actor.base.rea.base) / 2;
+        actor.cross.perception.current = (actor.base.ins.current + actor.base.rea.current) / 2;
+        actor.cross.rationality.base = (actor.base.wil.base + actor.base.rea.base) / 2;
+        actor.cross.rationality.current = (actor.base.wil.current + actor.base.rea.current) / 2;
+        actor.cross.dexterity.base = (actor.base.coo.base + actor.base.rea.base) / 2;
+        actor.cross.dexterity.current = (actor.base.coo.current + actor.base.rea.current) / 2;
+        actor.cross.ethereality.base = (actor.base.wil.base + actor.base.vit.base) / 2;
+        actor.cross.ethereality.current = (actor.base.wil.current + actor.base.vit.current) / 2;
 
     }
 
@@ -249,124 +249,124 @@ public class StatsUtil {
     private static void putSingleStat(Actor actor, int stat, int value) {
         switch (stat) {
             case PHY_CUR:
-                actor.phy.current = value;
+                actor.base.phy.current = value;
                 break;
             case PHY_BASE:
-                actor.phy.base = value;
+                actor.base.phy.base = value;
                 break;
             case COO_CUR:
-                actor.coo.current = value;
+                actor.base.coo.current = value;
                 break;
             case COO_BASE:
-                actor.coo.base = value;
+                actor.base.coo.base = value;
                 break;
             case REAS_CUR:
-                actor.rea.current = value;
+                actor.base.rea.current = value;
                 break;
             case REAS_BASE:
-                actor.rea.base = value;
+                actor.base.rea.base = value;
                 break;
             case WILL_CUR:
-                actor.wil.current = value;
+                actor.base.wil.current = value;
                 break;
             case WILL_BASE:
-                actor.wil.base = value;
+                actor.base.wil.base = value;
                 break;
             case INST_CUR:
-                actor.ins.current = value;
+                actor.base.ins.current = value;
                 break;
             case INST_BASE:
-                actor.ins.base = value;
+                actor.base.ins.base = value;
                 break;
             case VIT_CUR:
-                actor.vit.current = value;
+                actor.base.vit.current = value;
                 break;
             case VIT_BASE:
-                actor.vit.base = value;
+                actor.base.vit.base = value;
                 break;
             case HUMAN_CUR:
-                actor.human_nex.current = value;
+                actor.nexuses.human.current = value;
                 break;
             case HUMAN_BASE:
-                actor.human_nex.base = value;
+                actor.nexuses.human.base = value;
                 break;
             case ANIMAL_CUR:
-                actor.animal_nex.current = value;
+                actor.nexuses.animal.current = value;
                 break;
             case ANIMAL_BASE:
-                actor.animal_nex.base = value;
+                actor.nexuses.animal.base = value;
                 break;
             case VEGETAL_CUR:
-                actor.vegetal_nex.current = value;
+                actor.nexuses.vegetal.current = value;
                 break;
             case VEGETAL_BASE:
-                actor.vegetal_nex.base = value;
+                actor.nexuses.vegetal.base = value;
                 break;
             case INORG_CUR:
-                actor.inorganic_nex.current = value;
+                actor.nexuses.inorganic.current = value;
                 break;
             case INORG_BASE:
-                actor.inorganic_nex.base = value;
+                actor.nexuses.inorganic.base = value;
                 break;
             case ARTIF_CUR:
-                actor.artificial_nex.current = value;
+                actor.nexuses.artificial.current = value;
                 break;
             case ARTIF_BASE:
-                actor.artificial_nex.base = value;
+                actor.nexuses.artificial.base = value;
                 break;
             case MAGIC_CUR:
-                actor.magic_nex.current = value;
+                actor.nexuses.magic.current = value;
                 break;
             case MAGIC_BASE:
-                actor.magic_nex.base = value;
+                actor.nexuses.magic.base = value;
                 break;
             case MAN_S_CUR:
-                actor.manufacturing_skill.current = value;
+                actor.skills.manufacturing.current = value;
                 break;
             case MAN_S_BASE:
-                actor.manufacturing_skill.base = value;
+                actor.skills.manufacturing.base = value;
                 break;
             case HARV_S_CUR:
-                actor.harvesting_skill.current = value;
+                actor.skills.harvesting.current = value;
                 break;
             case HARV_S_BASE:
-                actor.harvesting_skill.base = value;
+                actor.skills.harvesting.base = value;
                 break;
             case ALCH_S_CUR:
-                actor.alchemy_skill.current = value;
+                actor.skills.alchemy.current = value;
                 break;
             case ALCH_S_BASE:
-                actor.alchemy_skill.base = value;
+                actor.skills.alchemy.base = value;
                 break;
             case OVRL_S_CUR:
-                actor.overall_skill.current = value;
+                actor.skills.overall.current = value;
                 break;
             case OVRL_S_BASE:
-                actor.overall_skill.base = value;
+                actor.skills.overall.base = value;
                 break;
             case DEF_S_CUR:
-                actor.defense_skill.current = value;
+                actor.skills.defense.current = value;
                 break;
             case DEF_S_BASE:
-                actor.defense_skill.base = value;
+                actor.skills.defense.base = value;
                 break;
             case ATT_S_CUR:
-                actor.attack_skill.current = value;
+                actor.skills.attack.current = value;
                 break;
             case ATT_S_BASE:
-                actor.attack_skill.base = value;
+                actor.skills.attack.base = value;
                 break;
             case MAG_S_CUR:
-                actor.magic_skill.current = value;
+                actor.skills.magic.current = value;
                 break;
             case MAG_S_BASE:
-                actor.magic_skill.base = value;
+                actor.skills.magic.base = value;
                 break;
             case POT_S_CUR:
-                actor.potion_skill.current = value;
+                actor.skills.potion.current = value;
                 break;
             case POT_S_BASE:
-                actor.potion_skill.base = value;
+                actor.skills.potion.base = value;
                 break;
             case CARRY_WGHT_CUR:
                 actor.capacity.current = value;
@@ -455,10 +455,10 @@ public class StatsUtil {
                 actor.statistics.summoning_exp.base = value;
                 break;
             case SUM_S_CUR:
-                actor.summoning_skill.current = value;
+                actor.skills.summoning.current = value;
                 break;
             case SUM_S_BASE:
-                actor.summoning_skill.base = value;
+                actor.skills.summoning.base = value;
                 break;
             case CRA_EXP:
                 actor.statistics.crafting_exp.current = value;
@@ -467,10 +467,10 @@ public class StatsUtil {
                 actor.statistics.crafting_exp.base = value;
                 break;
             case CRA_S_CUR:
-                actor.crafting_skill.current = value;
+                actor.skills.crafting.current = value;
                 break;
             case CRA_S_BASE:
-                actor.crafting_skill.base = value;
+                actor.skills.crafting.base = value;
                 break;
             case ENG_EXP:
                 actor.statistics.engineering_exp.current = value;
@@ -479,10 +479,10 @@ public class StatsUtil {
                 actor.statistics.engineering_exp.base = value;
                 break;
             case ENG_S_CUR:
-                actor.engineering_skill.current = value;
+                actor.skills.engineering.current = value;
                 break;
             case ENG_S_BASE:
-                actor.engineering_skill.base = value;
+                actor.skills.engineering.base = value;
                 break;
             case RANG_EXP:
                 actor.statistics.ranging_exp.current = value;
@@ -491,10 +491,10 @@ public class StatsUtil {
                 actor.statistics.ranging_exp.base = value;
                 break;
             case RANG_S_CUR:
-                actor.ranging_skill.current = value;
+                actor.skills.ranging.current = value;
                 break;
             case RANG_S_BASE:
-                actor.ranging_skill.base = value;
+                actor.skills.ranging.base = value;
                 break;
             case TAIL_EXP:
                 actor.statistics.tailoring_exp.current = value;
@@ -503,16 +503,16 @@ public class StatsUtil {
                 actor.statistics.tailoring_exp.base = value;
                 break;
             case TAIL_S_CUR:
-                actor.tailoring_skill.current = value;
+                actor.skills.tailoring.current = value;
                 break;
             case TAIL_S_BASE:
-                actor.tailoring_skill.base = value;
+                actor.skills.tailoring.base = value;
                 break;
             case ACTION_POINTS_CUR:
-                actor.action_points.current = value;
+                actor.actionPoints.current = value;
                 break;
             case ACTION_POINTS_BASE:
-                actor.action_points.base = value;
+                actor.actionPoints.base = value;
                 break;
         }
     }

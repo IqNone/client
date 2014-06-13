@@ -7,6 +7,8 @@ import el.protocol.Message;
 import java.io.IOException;
 import java.net.Socket;
 
+import static el.utils.IOUtils.closeQuite;
+
 public class ServerConnection extends MessageNotifier {
     private static final Logger LOGGER = LoggerFactory.logger(ServerConnection.class);
 
@@ -118,16 +120,6 @@ public class ServerConnection extends MessageNotifier {
         }
 
         return new Message(copyOfRange(buffer, 0, length + 2));
-    }
-
-    private void closeQuite(Socket socket) {
-        if (socket == null) {
-            return;
-        }
-
-        try {
-            socket.close();
-        } catch (IOException ignored) {}
     }
 
     private byte[] copyOfRange(byte[] original, int from, int to){
