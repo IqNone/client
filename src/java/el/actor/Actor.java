@@ -38,6 +38,7 @@ public class Actor extends BaseActor {
 
     public int last_exp_gained;
     public Span last_inventory_item_text = new Span(Colors.GREY1, "");
+    public String last_PM_from = "";
 
     public ElMap map;
     public String mapPath;
@@ -45,7 +46,7 @@ public class Actor extends BaseActor {
     public int moveToX = -1;
     public int moveToY = -1;
 
-    public List<Text> texts = new ArrayList<>();
-    public Map<Integer, BaseActor> actors = new ConcurrentHashMap<>();
+    public List<Text> texts = new ArrayList<Text>();
+    public Map<Integer, BaseActor> actors = new ConcurrentHashMap<Integer, BaseActor>();
 
 }
