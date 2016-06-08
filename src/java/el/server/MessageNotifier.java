@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MessageNotifier {
-    private List<MessageReceiveListener> messageReceiveListeners = new ArrayList<>();
-    private List<MessageSendListener> messageSendListeners = new ArrayList<>();
+    private List<MessageReceiveListener> messageReceiveListeners = new ArrayList<MessageReceiveListener>();
+    private List<MessageSendListener> messageSendListeners = new ArrayList<MessageSendListener>();
     
     public void addListener(MessageReceiveListener listener) {
         messageReceiveListeners.add(listener);

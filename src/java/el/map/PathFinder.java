@@ -53,7 +53,7 @@ public class PathFinder {
 
     public LinkedList<Point> search(Point start, Point end) {
         if(m.heightMap[end.y][end.x] == 0 || start.equals(end)) {
-            return new LinkedList<>();
+            return new LinkedList<Point>();
         }
 
         computeParents(start, end);
@@ -130,7 +130,7 @@ public class PathFinder {
     }
 
     public List<Point> neighbours(Point p) {
-        List<Point> neighbours = new ArrayList<>(8);
+        List<Point> neighbours = new ArrayList<Point>(8);
 
         for (int dx = -1; dx <= 1; dx++) {
             int x = p.x + dx;
@@ -152,7 +152,7 @@ public class PathFinder {
     }
 
     private LinkedList<Point> listParents(Point point) {
-        LinkedList<Point> result = new LinkedList<>();
+        LinkedList<Point> result = new LinkedList<Point>();
 
         if(state(point) == null || !state(point).visited) {
             return result;

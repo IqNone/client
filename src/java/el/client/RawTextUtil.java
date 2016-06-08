@@ -21,7 +21,7 @@ public class RawTextUtil {
     public static List<Span> getSpans(byte[] data, int start, int end) {
         int color  = COLORS[GREY1];
         int spanStart = start;
-        List<Span> spans = new ArrayList<>();
+        List<Span> spans = new ArrayList<Span>();
 
         for(int i = start; i < end; ++i) {
             if(isColor(data[i])) {

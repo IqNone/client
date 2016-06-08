@@ -59,7 +59,7 @@ public class MoveManager {
     }
 
     public LinkedList<Point> minimize(LinkedList<Point> path) {
-        LinkedList<Point> result = new LinkedList<>();
+        LinkedList<Point> result = new LinkedList<Point>();
 
         int index = 0;
         for (Point point : path) {
