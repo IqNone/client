@@ -6,6 +6,9 @@ import el.protocol.Message;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import static el.utils.IOUtils.closeQuite;
 
@@ -18,8 +21,9 @@ public class ServerConnection extends MessageNotifier {
 
     private Socket socket;
     private volatile boolean running;
+    private ServerConnectionTask connectionTask;
 
-    public ServerConnection(String host, int port){
+    public ServerConnection(String host, int port) {
         this.host = host;
         this.port = port;
     }
@@ -27,16 +31,37 @@ public class ServerConnection extends MessageNotifier {
     public boolean connect() {
         try {
             LOGGER.info("connecting to " + host + ":" + port);
-            socket =  new Socket(this.host, this.port);
-            return true;
-        } catch (IOException e) {
-//            LOGGER.error(e);
+
+            connectionTask = new ServerConnectionTask();
+            connectionTask.execute(host, Integer.toString(port));
+
+            socket = connectionTask.get(10, TimeUnit.SECONDS);
+            // socket =  new Socket(this.host, this.port);
+            if (socket != null) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+            LOGGER.error(e);
             closeQuite(socket);
-            return false;
+        } catch (TimeoutException e) {
+            e.printStackTrace();
         }
+        return false;
     }
 
     public boolean isConnected() {
+        if (socket == null && connectionTask != null) {
+            try {
+                socket = connectionTask.get(60, TimeUnit.SECONDS);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         return socket != null && !socket.isClosed() && socket.isConnected();
     }
 
@@ -45,7 +70,7 @@ public class ServerConnection extends MessageNotifier {
     }
 
     public void start() {
-        if(running) {
+        if (running) {
             return;
         }
         running = true;
@@ -58,14 +83,14 @@ public class ServerConnection extends MessageNotifier {
         thread.start();
     }
 
-    public void stop () {
+    public void stop() {
         LOGGER.info("closing the connection");
         running = false;
         closeQuite(socket);
     }
 
-    public void sendMessage(Message message)  {
-        if(!isConnected()) {
+    public void sendMessage(Message message) {
+        if (!isConnected()) {
             return;
         }
 
@@ -82,10 +107,10 @@ public class ServerConnection extends MessageNotifier {
     public synchronized void waitMessages() {
         LOGGER.info("accepting messages from server");
         while (isConnected()) {
-            try{
+            try {
                 notifyReceive(optimisticReadMessage());
             } catch (IOException e) {
-                if(isRunning()) {
+                if (isRunning()) {
 //                    LOGGER.error("ERROR while reading from server:", e);
                     stop();
                 }
@@ -95,7 +120,7 @@ public class ServerConnection extends MessageNotifier {
     }
 
     private void optimisticSendMessage(Message message) throws IOException {
-        if(message.getSource().length > 1) {
+        if (message.getSource().length > 1) {
             socket.getOutputStream().write(message.getSource(), 0, message.getLength() + 2);
         } else {
             socket.getOutputStream().write(message.getSource()[0]);
@@ -104,7 +129,7 @@ public class ServerConnection extends MessageNotifier {
 
     private Message optimisticReadMessage() throws IOException {
         buffer[0] = (byte) socket.getInputStream().read();
-        if(buffer[0] == -1) {
+        if (buffer[0] == -1) {
             throw new IOException();
         }
 
@@ -112,7 +137,7 @@ public class ServerConnection extends MessageNotifier {
         buffer[2] = (byte) socket.getInputStream().read();
 
         int length = (buffer[2] << 8) | (buffer[1] & 0xFF);
-        int remaining =  length - 1;
+        int remaining = length - 1;
 
         while (remaining > 0) {
             int read = socket.getInputStream().read(buffer, length - remaining + 2, remaining);
@@ -122,7 +147,7 @@ public class ServerConnection extends MessageNotifier {
         return new Message(copyOfRange(buffer, 0, length + 2));
     }
 
-    private byte[] copyOfRange(byte[] original, int from, int to){
+    private byte[] copyOfRange(byte[] original, int from, int to) {
         int newLength = to - from;
         if (newLength < 0)
             throw new IllegalArgumentException(from + " > " + to);

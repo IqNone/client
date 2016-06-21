@@ -1,19 +1,28 @@
 package el.client;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import el.actor.Actor;
 import el.actor.Span;
 import el.actor.Text;
 import el.utils.ByteUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static el.client.Colors.*;
+import static el.client.Colors.COLORS;
+import static el.client.Colors.GREY1;
+import static el.client.Colors.getColor;
+import static el.client.Colors.isColor;
 
 public class RawTextUtil {
     public static void putRawText(Actor actor, byte[] data) {
         int channel = ByteUtils.unsigned(data[3]);
         List<Span> spans = getSpans(data, 4, data.length);
+
+        if(channel >= 5 && channel <=7) {
+            // Add channel number
+            // TODO change colour based on active channel
+            spans.get(0).text = spans.get(0).text.replaceFirst("]", " @" + actor.channels.get(channel-5)+"]");
+        }
 
         actor.texts.add(new Text(channel, spans));
     }

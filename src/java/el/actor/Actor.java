@@ -1,14 +1,18 @@
 package el.actor;
 
-import el.client.Colors;
-import el.map.ElMap;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import static el.actor.Attributes.*;
+import el.client.Colors;
+import el.map.ElMap;
+
+import static el.actor.Attributes.Attribute;
+import static el.actor.Attributes.BaseAttributes;
+import static el.actor.Attributes.CrossAttributes;
+import static el.actor.Attributes.NexusAttributes;
+import static el.actor.Attributes.SkillAttributes;
 
 public class Actor extends BaseActor {
     public Attribute etherealPoints = new Attribute();
@@ -49,4 +53,6 @@ public class Actor extends BaseActor {
     public List<Text> texts = new ArrayList<Text>();
     public Map<Integer, BaseActor> actors = new ConcurrentHashMap<Integer, BaseActor>();
 
+    public int activeChannel = 0;
+    public ArrayList<Integer> channels = new  ArrayList<Integer>(3){{add(0);add(0);add(0);}}; ;
 }
